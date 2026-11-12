@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartPro X & Series Advertisement</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .ad-container {
+            width: 100%;
+            max-width: 750px;
+            background: #ffffff;
+            border: 4px solid #1a365d;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .product-title {
+            font-size: 44px;
+            font-weight: 800;
+            color: #1a365d;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-style: italic;
+            color: #2b6cb0;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Product Showcase Image Container */
+        .image-container {
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            border: 1px solid #cbd5e0;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            max-height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            border-left: 5px solid #3182ce;
+            padding-left: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5568;
+            background-color: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .features-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2d3748;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            background-color: #edf2f7;
+            border-radius: 6px;
+        }
+
+        .features-list strong {
+            color: #2b6cb0;
+        }
+
+        /* Product Lineup Cards */
+        .lineup-grid {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lineup-card {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .lineup-card.featured {
+            border: 2px solid #3182ce;
+            background: #ebf8ff;
+        }
+
+        .lineup-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .lineup-card h3 {
+            margin: 0 0 8px 0;
+            color: #2d3748;
+            font-size: 18px;
+        }
+
+        .lineup-card p {
+            font-size: 13px;
+            color: #718096;
+            margin: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .special-offer {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border: 2px dashed #e53e3e;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .offer-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #c53030;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+        }
+
+        .offer-text {
+            font-size: 18px;
+            color: #742a2a;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #edf2f7;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 4px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .submit-btn {
+            background-color: #3182ce;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #3182ce;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ad-container">
+        
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="product-title">SMARTPRO X</h1>
+            <div class="tagline">Experience the Future Today!</div>
+        </div>
+
+        <!-- Main Product Showcase Image -->
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" alt="SmartPro X Smartphone Showcase" class="product-image">
+        </div>
+
+        <!-- Why Choose Section -->
+        <h2 class="section-title">Why Choose SmartPro X?</h2>
+        <div class="description">
+            <strong>SmartPro X</strong> is designed for students, professionals, and technology enthusiasts who need a reliable device for learning, communication, entertainment, and productivity.
+        </div>
+
+        <!-- Key Features Section -->
+        <h2 class="section-title">Key Features</h2>
+        <ul class="features-list">
+            <li>📷 <strong>High-resolution camera</strong> for crisp, professional-quality photos.</li>
+            <li>🔋 <strong>Long-lasting battery</strong> to power through your day without interruptions.</li>
+            <li>⚡ <strong>Fast processing speed</strong> for smooth multitasking and gaming.</li>
+            <li>💾 <strong>Large storage capacity</strong> for all your files, photos, and apps.</li>
+            <li>🔒 <strong>Secure fingerprint unlocking</strong> for instant, safe access.</li>
+        </ul>
+
+        <!-- Additional Product Family Section with Thumbnail Images -->
+        <h2 class="section-title">Explore the SmartPro Family</h2>
+        <div class="lineup-grid">
+            <div class="lineup-card">
+                <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=400&q=80" alt="SmartPro Lite">
+                <h3>SmartPro Lite</h3>
+                <p>Compact, essential performance for budget-conscious users.</p>
+            </div>
+            <div class="lineup-card featured">
+                <span class="badge">FLAGSHIP</span>
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=400&q=80" alt="SmartPro X">
+                <h3>SmartPro X</h3>
+                <p>The ultimate balance of speed, power, and photography.</p>
+            </div>
+            <div class="lineup-card">
+                <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=400&q=80" alt="SmartPro Ultra">
+                <h3>SmartPro Ultra</h3>
+                <p>Maximized screen display for heavy power users.</p>
+            </div>
+        </div>
+
+        <!-- Special Offer Highlight Box -->
+        <div class="special-offer">
+            <p class="offer-title">🎉 Special Launch Offer 🎉</p>
+            <p class="offer-text">Get <strong>10% off</strong> the launch price during the first week of sales!</p>
+        </div>
+
+        <!-- Contact & Order Inquiry Section -->
+        <h2 class="section-title">Contact & Order Inquiry</h2>
+        <div class="contact-section">
+            <div class="contact-info">
+                <div>📞 <strong>Phone:</strong> +23481526705PRO</div>
+                <div>✉️ <strong>Email:</strong> darasimiokanlawon5@gmail.com</div>
+                <div>🌐 <strong>Web:</strong> www.smartpro.com</div>
+            </div>
+
+            <!-- Form: Submissions send direct email via Formspree -->
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Selected SmartPro Model:</label>
+                    <select id="model" name="model">
+                        <option value="SmartPro X (Flagship)">SmartPro X (Flagship - 10% Off)</option>
+                        <option value="SmartPro Lite">SmartPro Lite</option>
+                        <option value="SmartPro Ultra">SmartPro Ultra</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message / Order Questions:</label>
+                    <textarea id="message" name="message" placeholder="Ask a question or place an order request..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message & Claim Offer</button>
+            </form>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-container">
+            <div class="cta-button">Discover a smarter way to connect!</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
