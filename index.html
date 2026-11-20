@@ -200,11 +200,10 @@
        Prices below are sample prices; confirm your actual prices.
     ====================================================== */
     const SETTINGS = {
-      whatsappNumber: "234 8152 7167 05",
-      contactEmail: "darasimiokanlawon5@gmail.com",
-      adminPassword: "ChangeThisDemoPassword!"
-    };
-
+    whatsappNumber: "2348152716705",
+    contactEmail: "darasimiokanlawon5@gmail.com",
+    adminPassword: "2012"
+};
     const PRODUCTS = [
       {name:"SmartPro Lite", price:85000, description:"Compact, essential performance for everyday tasks.", image:"https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"},
       {name:"SmartPro X", price:150000, description:"A balanced combination of speed, power and photography.", image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80", featured:true},
@@ -258,19 +257,19 @@
       document.getElementById("customerName").focus({preventScroll:true});
     });
 
-    document.getElementById("orderForm").addEventListener("submit", event => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      if(!form.reportValidity()) return;
-      const customer = {
-        id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
-        date: new Date().toISOString(),
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        model: form.model.value,
-        message: form.message.value.trim()
-      };
+    document.getElementById("loginButton").addEventListener("click", () => {
+    const entered = document.getElementById("adminPassword").value.trim();
+
+    if (entered === SETTINGS.adminPassword.trim()) {
+        adminSignedIn = true;
+        document.getElementById("loginStatus").textContent =
+            "Login successful!";
+        showAdminState();
+    } else {
+        document.getElementById("loginStatus").textContent =
+            "Incorrect password. Please check your password.";
+    }
+});
       if(!customer.name || !customer.email || !customer.phone) return;
       const records = getEnquiries();
       records.unshift(customer);
