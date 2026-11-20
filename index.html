@@ -1,378 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SmartPro X & Series Advertisement</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .ad-container {
-            width: 100%;
-            max-width: 750px;
-            background: #ffffff;
-            border: 4px solid #1a365d;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-        }
-
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-        }
-
-        .product-title {
-            font-size: 44px;
-            font-weight: 800;
-            color: #1a365d;
-            letter-spacing: 2px;
-            margin: 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .tagline {
-            font-size: 20px;
-            font-style: italic;
-            color: #2b6cb0;
-            margin-top: 8px;
-            font-weight: 600;
-        }
-
-        /* Product Showcase Image Container */
-        .image-container {
-            text-align: center;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-            border: 1px solid #cbd5e0;
-        }
-
-        .product-image {
-            width: 100%;
-            height: auto;
-            max-height: 380px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 22px;
-            color: #2d3748;
-            margin-bottom: 12px;
-            border-left: 5px solid #3182ce;
-            padding-left: 10px;
-        }
-
-        .description {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #4a5568;
-            background-color: #f7fafc;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-
-        .features-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 30px;
-        }
-
-        .features-list li {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #2d3748;
-            padding: 10px 14px;
-            margin-bottom: 8px;
-            background-color: #edf2f7;
-            border-radius: 6px;
-        }
-
-        .features-list strong {
-            color: #2b6cb0;
-        }
-
-        /* Product Lineup Cards */
-        .lineup-grid {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .lineup-card {
-            flex: 1;
-            background: #f8fafc;
-            border: 1px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .lineup-card.featured {
-            border: 2px solid #3182ce;
-            background: #ebf8ff;
-        }
-
-        .lineup-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            border-radius: 6px;
-        }
-
-        .lineup-card h3 {
-            margin: 0 0 8px 0;
-            color: #2d3748;
-            font-size: 18px;
-        }
-
-        .lineup-card p {
-            font-size: 13px;
-            color: #718096;
-            margin: 0;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #3182ce;
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-        }
-
-        .special-offer {
-            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-            border: 2px dashed #e53e3e;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .offer-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #c53030;
-            margin: 0 0 8px 0;
-            text-transform: uppercase;
-        }
-
-        .offer-text {
-            font-size: 18px;
-            color: #742a2a;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background-color: #edf2f7;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #2d3748;
-            font-weight: 600;
-        }
-
-        .contact-info div {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #4a5568;
-            margin-bottom: 4px;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            padding: 10px;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 70px;
-        }
-
-        .submit-btn {
-            background-color: #3182ce;
-            color: white;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #2b6cb0;
-        }
-
-        .cta-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #3182ce;
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 700;
-            padding: 14px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the SmartPro smartphone family. Compare models, explore the gallery and place an order.">
+  <meta name="theme-color" content="#08111f">
+  <title>SmartPro X | Experience the Future</title>
+  <style>
+    :root {
+      --bg:#08111f; --panel:#101d30; --panel2:#14243a; --text:#edf4ff;
+      --muted:#9fb0c7; --blue:#4da3ff; --cyan:#42e0d0; --line:rgba(255,255,255,.1);
+      --shadow:0 20px 55px rgba(0,0,0,.28); --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 15% 0%,#15365a 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button,a{ -webkit-tap-highlight-color:transparent }
+    .container{width:min(1120px,calc(100% - 36px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(8,17,31,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:1.35rem;font-weight:900;letter-spacing:1.5px}.brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:24px;align-items:center;color:var(--muted);font-size:.94rem}
+    .navlinks a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;background:linear-gradient(110deg,var(--blue),var(--cyan));color:#04111d;font-weight:800;cursor:pointer;transition:transform .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
+    .btn.small{padding:9px 15px;font-size:.88rem}
+    .hero{padding:76px 0 64px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+    .eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.78rem}
+    h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.02;letter-spacing:-2px;margin:14px 0}
+    h1 span{background:linear-gradient(90deg,var(--blue),var(--cyan));background-clip:text;color:transparent}
+    .hero p,.muted{color:var(--muted)}
+    .hero p{font-size:1.08rem;max-width:560px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .hero-art{position:relative;min-height:390px;display:grid;place-items:center}
+    .hero-art:before{content:"";position:absolute;width:310px;height:310px;border-radius:50%;background:linear-gradient(135deg,rgba(77,163,255,.3),rgba(66,224,208,.12));filter:blur(3px)}
+    .hero-art img{position:relative;width:min(100%,470px);height:380px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite}
+    .pill{position:absolute;bottom:22px;left:8px;background:rgba(10,25,43,.88);border:1px solid var(--line);padding:12px 16px;border-radius:14px}
+    section{padding:54px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:24px}
+    h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;margin:0 0 8px}
+    .section-head p{margin:0;color:var(--muted)}
+    .feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+    .feature{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .feature b{display:block;margin:7px 0 3px}.feature span{font-size:1.4rem}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+    .card:hover{transform:translateY(-6px);border-color:rgba(66,224,208,.45)}
+    .card img{width:100%;height:220px;object-fit:cover;display:block}
+    .card-body{padding:20px}.card h3{margin:0 0 5px;font-size:1.25rem}.price{font-size:1.35rem;font-weight:900;color:var(--cyan);margin:12px 0}
+    .card-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gallery button{padding:0;border:0;background:none;cursor:zoom-in;overflow:hidden;border-radius:16px}
+    .gallery img{display:block;width:100%;height:180px;object-fit:cover;transition:transform .35s}
+    .gallery button:hover img{transform:scale(1.07)}
+    .offer{padding:28px;border-radius:var(--radius);background:linear-gradient(110deg,#153a61,#14534f);border:1px solid rgba(66,224,208,.3);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .offer h2{margin-bottom:6px}.offer p{margin:0;color:#d3e8f7}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+    .contact-list{display:grid;gap:13px;color:var(--muted);overflow-wrap:anywhere}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:grid;gap:6px}.field.full{grid-column:1/-1}
+    label{font-size:.9rem;font-weight:700}
+    input,select,textarea{width:100%;padding:12px 13px;border-radius:11px;border:1px solid var(--line);background:#0b1727;color:var(--text);outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(66,224,208,.1)}
+    textarea{min-height:110px;resize:vertical}
+    .status{min-height:24px;color:var(--cyan);font-size:.92rem}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center}
+    .admin-link{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:50;display:none;place-items:center;padding:18px}
+    .modal.open{display:grid}
+    .modal-box{width:min(850px,100%);max-height:90vh;overflow:auto;background:#0d1a2b;border:1px solid var(--line);border-radius:20px;padding:22px}
+    .modal-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .close{background:none;border:0;color:var(--text);font-size:1.8rem;cursor:pointer}
+    .admin-table{width:100%;border-collapse:collapse;margin-top:15px;font-size:.9rem}
+    .admin-table th,.admin-table td{padding:10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+    .admin-table th{color:var(--cyan)}
+    .admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+    .danger{background:#8b2635;color:white}
+    .notice{padding:12px;border-radius:12px;background:#172c43;color:#c9d9ec;font-size:.9rem;margin:12px 0}
+    .lightbox img{max-width:min(90vw,900px);max-height:80vh;border-radius:14px}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:52px}.hero-art{min-height:300px}.hero-art img{height:300px}.feature-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.container{width:min(100% - 24px,1120px)}.nav{min-height:62px}.navlinks{gap:12px;font-size:.82rem}.navlinks a:nth-child(2),.navlinks a:nth-child(3){display:none}.nav .btn{padding:9px 13px}.hero{gap:20px;padding:42px 0}.hero-art{min-height:240px}.hero-art img{height:240px}.hero-art:before{width:220px;height:220px}.pill{bottom:8px}.feature-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:145px}.offer{align-items:flex-start;flex-direction:column}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.section-head{align-items:flex-start;flex-direction:column}.panel{padding:17px}.admin-table{min-width:620px}.table-wrap{overflow-x:auto}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <nav class="nav container">
+      <a class="brand" href="#">SMART<span>PRO</span></a>
+      <div class="navlinks"><a href="#products">Products</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a href="#contact" class="btn small">Order now</a></div>
+    </nav>
+  </header>
 
-    <div class="ad-container">
-        
-        <!-- Header Section -->
-        <div class="header">
-            <h1 class="product-title">SMARTPRO X</h1>
-            <div class="tagline">Experience the Future Today!</div>
-        </div>
-
-        <!-- Main Product Showcase Image -->
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" alt="SmartPro X Smartphone Showcase" class="product-image">
-        </div>
-
-        <!-- Why Choose Section -->
-        <h2 class="section-title">Why Choose SmartPro X?</h2>
-        <div class="description">
-            <strong>SmartPro X</strong> is designed for students, professionals, and technology enthusiasts who need a reliable device for learning, communication, entertainment, and productivity.
-        </div>
-
-        <!-- Key Features Section -->
-        <h2 class="section-title">Key Features</h2>
-        <ul class="features-list">
-            <li>📷 <strong>High-resolution camera</strong> for crisp, professional-quality photos.</li>
-            <li>🔋 <strong>Long-lasting battery</strong> to power through your day without interruptions.</li>
-            <li>⚡ <strong>Fast processing speed</strong> for smooth multitasking and gaming.</li>
-            <li>💾 <strong>Large storage capacity</strong> for all your files, photos, and apps.</li>
-            <li>🔒 <strong>Secure fingerprint unlocking</strong> for instant, safe access.</li>
-        </ul>
-
-        <!-- Additional Product Family Section with Thumbnail Images -->
-        <h2 class="section-title">Explore the SmartPro Family</h2>
-        <div class="lineup-grid">
-            <div class="lineup-card">
-                <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=400&q=80" alt="SmartPro Lite">
-                <h3>SmartPro Lite</h3>
-                <p>Compact, essential performance for budget-conscious users.</p>
-            </div>
-            <div class="lineup-card featured">
-                <span class="badge">FLAGSHIP</span>
-                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=400&q=80" alt="SmartPro X">
-                <h3>SmartPro X</h3>
-                <p>The ultimate balance of speed, power, and photography.</p>
-            </div>
-            <div class="lineup-card">
-                <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=400&q=80" alt="SmartPro Ultra">
-                <h3>SmartPro Ultra</h3>
-                <p>Maximized screen display for heavy power users.</p>
-            </div>
-        </div>
-
-        <!-- Special Offer Highlight Box -->
-        <div class="special-offer">
-            <p class="offer-title">🎉 Special Launch Offer 🎉</p>
-            <p class="offer-text">Get <strong>10% off</strong> the launch price during the first week of sales!</p>
-        </div>
-
-        <!-- Contact & Order Inquiry Section -->
-        <h2 class="section-title">Contact & Order Inquiry</h2>
-        <div class="contact-section">
-            <div class="contact-info">
-                <div>📞 <strong>Phone:</strong> +23481526705PRO</div>
-                <div>✉️ <strong>Email:</strong> darasimiokanlawon5@gmail.com</div>
-                <div>🌐 <strong>Web:</strong> www.smartpro.com</div>
-            </div>
-
-            <!-- Form: Submissions send direct email via Formspree -->
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Your Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="model">Selected SmartPro Model:</label>
-                    <select id="model" name="model">
-                        <option value="SmartPro X (Flagship)">SmartPro X (Flagship - 10% Off)</option>
-                        <option value="SmartPro Lite">SmartPro Lite</option>
-                        <option value="SmartPro Ultra">SmartPro Ultra</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Your Message / Order Questions:</label>
-                    <textarea id="message" name="message" placeholder="Ask a question or place an order request..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message & Claim Offer</button>
-            </form>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-container">
-            <div class="cta-button">Discover a smarter way to connect!</div>
-        </div>
-
+  <main>
+    <div class="container hero">
+      <div class="reveal">
+        <div class="eyebrow">New generation smartphones</div>
+        <h1>Meet the <span>SmartPro X</span></h1>
+        <p>Powerful performance, thoughtful design and the tools you need for work, learning and entertainment. Find the SmartPro model that fits your day.</p>
+        <div class="hero-actions"><a class="btn" href="#products">Explore models</a><a class="btn secondary" href="#gallery">View gallery</a></div>
+      </div>
+      <div class="hero-art reveal">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=85" alt="Smartphone product showcase">
+        <div class="pill">✨ <strong>Smart design. Everyday power.</strong></div>
+      </div>
     </div>
 
+    <section class="container reveal">
+      <div class="section-head"><div><div class="eyebrow">Made for your everyday</div><h2>Why choose SmartPro?</h2><p>Useful features packed into a clean, modern experience.</p></div></div>
+      <div class="feature-grid">
+        <div class="feature"><span>📷</span><b>Clear camera</b><small class="muted">Capture your moments.</small></div>
+        <div class="feature"><span>🔋</span><b>Reliable battery</b><small class="muted">Stay powered throughout the day.</small></div>
+        <div class="feature"><span>⚡</span><b>Smooth performance</b><small class="muted">Move between your apps.</small></div>
+        <div class="feature"><span>💾</span><b>Room to store</b><small class="muted">Keep files and memories.</small></div>
+        <div class="feature"><span>🔒</span><b>Device security</b><small class="muted">Convenient screen protection.</small></div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="products">
+      <div class="section-head"><div><div class="eyebrow">Choose your model</div><h2>The SmartPro family</h2><p>Sample prices are in Nigerian naira. Change them in the settings near the top of the JavaScript.</p></div></div>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="container reveal" id="gallery">
+      <div class="section-head"><div><div class="eyebrow">A closer look</div><h2>Product gallery</h2><p>Select an image to view it larger.</p></div></div>
+      <div class="gallery" id="galleryGrid">
+        <button type="button" aria-label="View smartphone image"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Smartphone front view"></button>
+        <button type="button" aria-label="View smartphone image"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=700&q=80" alt="Smartphone on display"></button>
+        <button type="button" aria-label="View smartphone image"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=700&q=80" alt="Smartphone close-up"></button>
+        <button type="button" aria-label="View smartphone image"><img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=700&q=80" alt="Smartphone design detail"></button>
+        
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <div class="offer"><div><div class="eyebrow">Launch promotion</div><h2>Enjoy 10% off SmartPro X</h2><p>Promotional offer shown as an example. Confirm the offer and dates before publishing.</p></div><a class="btn" href="#contact" data-order="SmartPro X">Claim offer</a></div>
+    </section>
+
+    <section class="container reveal" id="contact">
+      <div class="section-head"><div><div class="eyebrow">We are here to help</div><h2>Contact & place an order</h2><p>Send an enquiry or open WhatsApp with your order details.</p></div></div>
+      <div class="contact-grid">
+        <div class="panel">
+          <h3>Get in touch</h3>
+          <div class="contact-list">
+            <div>📱 <strong>Phone / WhatsApp:</strong> <span id="displayPhone"> 234 8152716705</span></div>
+            <div>✉️ <strong>Email:</strong> <span id="displayEmail">darasimiokanlawon5@gmail.com</span></div>
+            <div>🌐 <strong>Website:</strong> SmartPro online store</div>
+          </div>
+          <p class="notice">For the WhatsApp button to work, enter your real WhatsApp number in international format in the configuration below. Use digits only, including country code.</p>
+          <a class="btn" id="whatsappGeneral" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <div class="panel">
+          <form id="orderForm">
+            <div class="form-grid">
+              <div class="field"><label for="customerName">Your name</label><input id="customerName" name="name" autocomplete="name" required maxlength="80" placeholder="Full name"></div>
+              <div class="field"><label for="customerEmail">Email address</label><input id="customerEmail" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com"></div>
+              <div class="field"><label for="customerPhone">Phone number</label><input id="customerPhone" name="phone" type="tel" required maxlength="25" placeholder="+234..."></div>
+              <div class="field"><label for="modelSelect">Choose a model</label><select id="modelSelect" name="model" required></select></div>
+              <div class="field full"><label for="orderMessage">Message / delivery questions</label><textarea id="orderMessage" name="message" maxlength="1000" placeholder="Tell us what you would like to know..."></textarea></div>
+              <div class="field full"><button class="btn" type="submit">Submit enquiry & continue to WhatsApp</button><div class="status" id="formStatus" role="status" aria-live="polite"></div></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© <span id="year"></span> SmartPro. All rights reserved. <button class="admin-link" id="adminOpen">Admin dashboard</button></div></footer>
+
+  <div class="modal" id="lightbox" aria-label="Image preview" role="dialog" aria-modal="true"><div class="lightbox"><button class="close" id="lightboxClose" aria-label="Close image">×</button><img id="lightboxImage" src="" alt="Enlarged product"></div></div>
+
+  <div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-box">
+      <div class="modal-top"><h2 id="adminTitle">SmartPro admin dashboard</h2><button class="close" id="adminClose" aria-label="Close dashboard">×</button></div>
+      <div id="adminLogin">
+        <p class="muted">Demo dashboard. Enter the demo password to view enquiries saved in this browser.</p>
+        <div class="field"><label for="adminPassword">Admin password</label><input id="adminPassword" type="password" autocomplete="current-password"></div>
+        <p class="status" id="loginStatus" role="status"></p>
+        <button class="btn" id="loginButton" type="button">Sign in</button>
+      </div>
+      <div id="adminContent" hidden>
+        <div class="notice">Demo only: records are stored in this browser's localStorage. This is not secure authentication and does not sync between devices. Do not use it for real customer data on a public website.</div>
+        <div class="admin-actions"><button class="btn small" id="exportButton" type="button">Export enquiries CSV</button><button class="btn small secondary" id="logoutButton" type="button">Log out</button></div>
+        <p id="recordCount" class="muted"></p>
+        <div class="table-wrap"><table class="admin-table"><thead><tr><th>Date</th><th>Name</th><th>Contact</th><th>Model</th><th>Message</th><th>Action</th></tr></thead><tbody id="enquiryRows"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ================= SMARTPRO SETTINGS =================
+       Replace these example values before publishing.
+       WhatsApp: country code + number, digits only (Nigeria: 234...)
+       Prices below are sample prices; confirm your actual prices.
+    ====================================================== */
+    const SETTINGS = {
+      whatsappNumber: "234 8152 7167 05",
+      contactEmail: "darasimiokanlawon5@gmail.com",
+      adminPassword: "ChangeThisDemoPassword!"
+    };
+
+    const PRODUCTS = [
+      {name:"SmartPro Lite", price:85000, description:"Compact, essential performance for everyday tasks.", image:"https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"},
+      {name:"SmartPro X", price:150000, description:"A balanced combination of speed, power and photography.", image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80", featured:true},
+      {name:"SmartPro Ultra", price:220000, description:"A larger display and enhanced everyday experience.", image:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"}
+    ];
+    const STORAGE_KEY = "smartpro_enquiries_v1";
+    const money = amount => new Intl.NumberFormat("en-NG",{style:"currency",currency:"NGN",maximumFractionDigits:0}).format(amount);
+    const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+    const getEnquiries = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; } };
+    const saveEnquiries = records => localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+
+    function whatsappReady(){return /^\d{10,15}$/.test(SETTINGS.whatsappNumber) && !SETTINGS.whatsappNumber.includes("X");}
+    function whatsappLink(message){
+      if(!whatsappReady()) return "";
+      return "https://wa.me/" + SETTINGS.whatsappNumber + "?text=" + encodeURIComponent(message);
+    }
+    function orderMessage(productName, customer){
+      return `Hello SmartPro, I would like to enquire about ${productName}.` + (customer ? `\nName: ${customer.name}\nEmail: ${customer.email}\nPhone: ${customer.phone}\nMessage: ${customer.message}` : "");
+    }
+
+    const productGrid = document.getElementById("productGrid");
+    const modelSelect = document.getElementById("modelSelect");
+    productGrid.innerHTML = PRODUCTS.map(product => `
+      <article class="card">
+        <img src="${product.image}" alt="${escapeHTML(product.name)}" loading="lazy">
+        <div class="card-body">
+          ${product.featured ? '<span class="eyebrow">★ Flagship model</span>' : ''}
+          <h3>${escapeHTML(product.name)}</h3>
+          <p class="muted">${escapeHTML(product.description)}</p>
+          <div class="price">${money(product.price)}</div>
+          <div class="card-actions">
+            <button class="btn small" type="button" data-order="${escapeHTML(product.name)}">Order this model</button>
+            <a class="btn small secondary" href="#contact">Ask a question</a>
+          </div>
+        </div>
+      </article>`).join("");
+    modelSelect.innerHTML = PRODUCTS.map(p => `<option value="${escapeHTML(p.name)}">${escapeHTML(p.name)} — ${money(p.price)}</option>`).join("");
+    document.getElementById("displayPhone").textContent = whatsappReady() ? "+" + SETTINGS.whatsappNumber : "Add your WhatsApp number in SETTINGS";
+    document.getElementById("displayEmail").textContent = SETTINGS.contactEmail;
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const generalWhatsApp = document.getElementById("whatsappGeneral");
+    const generalLink = whatsappLink("Hello SmartPro, I would like to know more about your phones.");
+    if(generalLink) generalWhatsApp.href = generalLink;
+    else { generalWhatsApp.href = "#contact"; generalWhatsApp.addEventListener("click", e => {e.preventDefault(); alert("Please add your WhatsApp number in the SETTINGS section of the JavaScript.");}); }
+
+    document.addEventListener("click", event => {
+      const button = event.target.closest("[data-order]");
+      if(!button) return;
+      modelSelect.value = button.dataset.order;
+      document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+      document.getElementById("customerName").focus({preventScroll:true});
+    });
+
+    document.getElementById("orderForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if(!form.reportValidity()) return;
+      const customer = {
+        id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
+        date: new Date().toISOString(),
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        model: form.model.value,
+        message: form.message.value.trim()
+      };
+      if(!customer.name || !customer.email || !customer.phone) return;
+      const records = getEnquiries();
+      records.unshift(customer);
+      try { saveEnquiries(records); }
+      catch { document.getElementById("formStatus").textContent = "Could not save this enquiry in this browser. Check available storage."; return; }
+      document.getElementById("formStatus").textContent = "Enquiry saved in this browser. Opening WhatsApp if your number is configured...";
+      const link = whatsappLink(orderMessage(customer.model, customer));
+      if(link) window.open(link, "_blank", "noopener");
+      else document.getElementById("formStatus").textContent = "Enquiry saved locally. Add a valid WhatsApp number in SETTINGS to send it to your business WhatsApp.";
+      form.reset();
+    });
+
+    // Gallery lightbox
+    const lightbox = document.getElementById("lightbox");
+    document.querySelectorAll("#galleryGrid button").forEach(button => button.addEventListener("click", () => {
+      document.getElementById("lightboxImage").src = button.querySelector("img").src;
+      document.getElementById("lightboxImage").alt = button.querySelector("img").alt;
+      lightbox.classList.add("open");
+    }));
+    function closeLightbox(){lightbox.classList.remove("open");}
+    document.getElementById("lightboxClose").addEventListener("click",closeLightbox);
+    lightbox.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
+
+    // Reveal-on-scroll animation
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}
+    }),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    // Local demo admin dashboard
+    const adminModal = document.getElementById("adminModal");
+    const adminLogin = document.getElementById("adminLogin");
+    const adminContent = document.getElementById("adminContent");
+    let adminSignedIn = false;
+    document.getElementById("adminOpen").addEventListener("click",()=>{adminModal.classList.add("open");showAdminState();});
+    document.getElementById("adminClose").addEventListener("click",()=>adminModal.classList.remove("open"));
+    adminModal.addEventListener("click",e=>{if(e.target===adminModal)adminModal.classList.remove("open");});
+    function showAdminState(){
+      adminLogin.hidden=adminSignedIn;adminContent.hidden=!adminSignedIn;
+      if(adminSignedIn) renderEnquiries();
+    }
+    document.getElementById("loginButton").addEventListener("click",()=>{
+      const entered=document.getElementById("adminPassword").value;
+      if(entered===SETTINGS.adminPassword){adminSignedIn=true;document.getElementById("loginStatus").textContent="Signed in for this browser session.";showAdminState();}
+      else document.getElementById("loginStatus").textContent="Incorrect password.";
+    });
+    document.getElementById("adminPassword").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("loginButton").click();});
+    document.getElementById("logoutButton").addEventListener("click",()=>{adminSignedIn=false;document.getElementById("adminPassword").value="";showAdminState();});
+    function renderEnquiries(){
+      const rows=document.getElementById("enquiryRows"), records=getEnquiries();
+      document.getElementById("recordCount").textContent=`${records.length} enquiry record(s) stored in this browser.`;
+      rows.innerHTML=records.length ? records.map(r=>`<tr><td>${escapeHTML(new Date(r.date).toLocaleString())}</td><td>${escapeHTML(r.name)}</td><td>${escapeHTML(r.email)}<br>${escapeHTML(r.phone)}</td><td>${escapeHTML(r.model)}</td><td>${escapeHTML(r.message)}</td><td><button class="btn small danger" type="button" data-delete="${escapeHTML(r.id)}">Delete</button></td></tr>`).join("") : '<tr><td colspan="6">No enquiries have been submitted yet.</td></tr>';
+    }
+    document.getElementById("enquiryRows").addEventListener("click",e=>{
+      const btn=e.target.closest("[data-delete]");if(!btn || !adminSignedIn)return;
+      if(!confirm("Delete this enquiry from this browser?"))return;
+      saveEnquiries(getEnquiries().filter(r=>r.id!==btn.dataset.delete));renderEnquiries();
+    });
+    document.getElementById("exportButton").addEventListener("click",()=>{
+      if(!adminSignedIn)return;
+      const records=getEnquiries(), headers=["Date","Name","Email","Phone","Model","Message"];
+      const cell=value=>'"'+String(value??"").replace(/"/g,'""')+'"';
+      const csv=[headers,...records.map(r=>[r.date,r.name,r.email,r.phone,r.model,r.message])].map(row=>row.map(cell).join(",")).join("\r\n");
+      const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
+      const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="smartpro-enquiries.csv";a.click();URL.revokeObjectURL(url);
+    });
+  </script>
 </body>
 </html>
+'''
+
+
