@@ -56,7 +56,7 @@
     .gallery button{padding:0;border:0;background:none;cursor:zoom-in;overflow:hidden;border-radius:16px}
     .gallery img{display:block;width:100%;height:180px;object-fit:cover;transition:transform .35s}
     .gallery button:hover img{transform:scale(1.07)}
-    .offer{padding:28px;border-radius:var(--radius);background:linear-gradient(110deg,#153a61,#14534f);border:1px solid rgba(66,224,208,.3);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .offer{padding:28px;border-radius:var(--radius);background:linear-gradient(110deg,#153a61,#14534f);border:1px solid rgba(77, 66, 224, 0.3);display:flex;align-items:center;justify-content:space-between;gap:20px}
     .offer h2{margin-bottom:6px}.offer p{margin:0;color:#d3e8f7}
     .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
     .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
@@ -94,6 +94,7 @@
     <nav class="nav container">
       <a class="brand" href="#">SMART<span>PRO</span></a>
       <div class="navlinks"><a href="#products">Products</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a href="#contact" class="btn small">Order now</a></div>
+      <button class="admin-link" id="adminOpen">Admin dashboard</button></div>
     </nav>
   </header>
 
@@ -117,7 +118,7 @@
         <div class="feature"><span>📷</span><b>Clear camera</b><small class="muted">Capture your moments.</small></div>
         <div class="feature"><span>🔋</span><b>Reliable battery</b><small class="muted">Stay powered throughout the day.</small></div>
         <div class="feature"><span>⚡</span><b>Smooth performance</b><small class="muted">Move between your apps.</small></div>
-        <div class="feature"><span>💾</span><b>Room to store</b><small class="muted">Keep files and memories.</small></div>
+        <div class="feature"><span>💾</span><b>Room to store</b><small class="muted">Keep files and memories.</small></div>273
         <div class="feature"><span>🔒</span><b>Device security</b><small class="muted">Convenient screen protection.</small></div>
       </div>
     </section>
@@ -171,7 +172,7 @@
     </section>
   </main>
 
-  <footer><div class="container">© <span id="year"></span> SmartPro. All rights reserved. <button class="admin-link" id="adminOpen">Admin dashboard</button></div></footer>
+  <footer><div class="container">© <span id="year"></span> SmartPro By Darasimi. All rights reserved 2026. 
 
   <div class="modal" id="lightbox" aria-label="Image preview" role="dialog" aria-modal="true"><div class="lightbox"><button class="close" id="lightboxClose" aria-label="Close image">×</button><img id="lightboxImage" src="" alt="Enlarged product"></div></div>
 
@@ -268,20 +269,32 @@
     } else {
         document.getElementById("loginStatus").textContent =
             "Incorrect password. Please check your password.";
-    }
-});
-      if(!customer.name || !customer.email || !customer.phone) return;
+    }      if(!customer.name || !customer.email || !customer.phone) return;
+
       const records = getEnquiries();
       records.unshift(customer);
-      try { saveEnquiries(records); }
-      catch { document.getElementById("formStatus").textContent = "Could not save this enquiry in this browser. Check available storage."; return; }
-      document.getElementById("formStatus").textContent = "Enquiry saved in this browser. Opening WhatsApp if your number is configured...";
+
+      try {
+        saveEnquiries(records);
+      } catch {
+        document.getElementById("formStatus").textContent =
+          "Could not save this enquiry in this browser. Check available storage.";
+        return;
+      }
+
+      document.getElementById("formStatus").textContent =
+        "Enquiry saved in this browser. Opening WhatsApp if your number is configured...";
+
       const link = whatsappLink(orderMessage(customer.model, customer));
+
       if(link) window.open(link, "_blank", "noopener");
-      else document.getElementById("formStatus").textContent = "Enquiry saved locally. Add a valid WhatsApp number in SETTINGS to send it to your business WhatsApp.";
+      else document.getElementById("formStatus").textContent =
+        "Enquiry saved locally. Add a valid WhatsApp number in SETTINGS to send it to your business WhatsApp.";
+
       form.reset();
     });
 
+    // Gallery lightbox
     // Gallery lightbox
     const lightbox = document.getElementById("lightbox");
     document.querySelectorAll("#galleryGrid button").forEach(button => button.addEventListener("click", () => {
